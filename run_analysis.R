@@ -60,11 +60,10 @@ grouped <- group_by(New_data,Subject, Activity)
 ##Calculate averages using summarize_each from dplyr
 Secondset <- summarize_each(grouped, funs(mean))
 
-if(!dir.exists("/Cleaned Set")){dir.create("/Cleaned Set")}
 #write the new file
-write.csv(New_data,"/Cleaned Set/Train_Test_Mean_Std_data.csv")
+write.table(New_data,"Train_Test_Mean_Std_data.txt", row.names = FALSE)
 #write the second dataset
-write.csv(Secondset,"/Cleaned Set/Train_Test_Mean_Std_data_summary.csv")
+write.table(Secondset,"Train_Test_Mean_Std_data_summary.txt", row.names = FALSE)
 
 
 }
